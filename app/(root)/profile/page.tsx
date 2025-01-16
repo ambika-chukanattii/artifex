@@ -22,10 +22,6 @@ const ProfilePage = () => {
         <Search/>
         <div className="flex justify-center items-center w-11/12 mt-12">
           <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 lg:gap-4">
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
           </div>
         </div>
       </div>
