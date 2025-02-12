@@ -70,3 +70,17 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .input-label {
+    @apply text-gray-600
+  }
+
+  .input-field {
+    @apply py-2 border border-gray-300 rounded-lg px-4 outline-none focus:border-gray-400 text-[18px];
+  }
+
+  .button {
+    @apply py-2 bg-gray-800 text-white rounded-lg
+  }
+}

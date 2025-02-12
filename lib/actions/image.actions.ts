@@ -10,7 +10,7 @@ import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 })
@@ -22,7 +22,7 @@ const populateUser = (query: any) => query.populate({
 })
 
 // ADD IMAGE
-export async function addImage({ image, userId, path }: AddImageParams) {
+export async function addImage({ image, userId }: AddImageParams) {
   try {
     await connectToDatabase();
 
@@ -32,23 +32,24 @@ export async function addImage({ image, userId, path }: AddImageParams) {
       throw new Error("User not found");
     }
 
-    const cloudinaryImage = await cloudinary.uploader.upload(image.imageUrl)
+    const cloudinaryImage = await cloudinary.uploader.upload(image.transformedImage.imageUrl)
+
+    console.log(cloudinaryImage)
 
     const newImage = await Image.create({
       ...image,
-      imageUrl: cloudinaryImage.url,
+      transformedImage: {
+        ...image.transformedImage,
+        imageUrl: cloudinaryImage.url,
+      },
       author: author._id,
     })
-
-    redirect('/')
-
-    return JSON.parse(JSON.stringify(newImage));
+    JSON.parse(JSON.stringify(newImage));
   } catch (error) {
     handleError(error)
   }
 }
 
-// GET IMAGE
 export async function getImageById(imageId: string) {
   try {
     await connectToDatabase();
@@ -81,10 +82,31 @@ export async function getUserImages(userId: string) {
   try {
     await connectToDatabase();
 
-    const images = await populateUser(Image.find({ author: userId }))
+    const images = await populateUser(Image.find({ author: userId }));
 
-    return JSON.parse(JSON.stringify(images))
+    console.log(images)
+
+    return JSON.parse(JSON.stringify(images));
   } catch (error) {
     handleError(error);
   }
 }
+
+export async function deleteImage(imageId: string) {
+  try {
+    await connectToDatabase();
+
+    const deletedImage = await Image.findByIdAndDelete(imageId)
+
+    if(!deletedImage){
+      throw new Error("No image found with the ID")
+    }
+
+    revalidatePath("/");
+
+    return JSON.parse(JSON.stringify(deletedImage))
+  } catch (error) {
+    handleError(error);
+  }
+}
+

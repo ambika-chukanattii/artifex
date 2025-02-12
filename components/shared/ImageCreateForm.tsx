@@ -10,7 +10,7 @@ type FormState = {
   imageUrl: string;
 };
 
-const ImageCreateForm = ({ userId }: {userId: string | null}) => {
+const ImageCreateForm = ({ userId }:{userId: string}) => {
   const path = usePathname()
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -77,11 +77,7 @@ const ImageCreateForm = ({ userId }: {userId: string | null}) => {
     setSharing(true)
     try{
       const res = await addImage({
-        image: {
-          title: "red dot",
-          prompt: "red dot stuff",
-          imageUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
-        },
+        image: form,
         userId: userId,
         path: path
       })
