@@ -10,8 +10,17 @@ import Link from 'next/link'
 
 const CommunityPage = async({ searchParams }: SearchParamProps) => {
   const searchQuery = (searchParams?.query as string) || '';
-  const images = await getAllImages()
+  let images = await getAllImages()
   console.log(images)
+
+  if(searchQuery){
+    console.log(images)
+    images = images.filter(
+      (img:any) =>
+        img.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        img.prompt.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
 
   return (
     <main className='w-full h-full flex flex-col items-center'>

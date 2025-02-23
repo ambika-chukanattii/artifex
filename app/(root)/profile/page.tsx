@@ -8,15 +8,22 @@ import { getUserById } from "@/lib/actions/user.actions";
 import Search from "@/components/shared/Search";
 
 const Profile = async ({ searchParams }: SearchParamProps) => {
-  const page = Number(searchParams?.page) || 1;
+  const searchQuery = (searchParams?.query as string) || '';
   const { userId } = await auth();
 
   if (!userId) redirect("/sign-in");
 
   const user = await getUserById(userId);
-  const images = await getUserImages(user._id);
+  let images = await getUserImages(user._id);
 
-  console.log(images)
+  if(searchQuery){
+    console.log(images)
+    images = images.filter(
+      (img:any) =>
+        img.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        img.prompt.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
 
   return (
     <div className="flex flex-col items-center">
