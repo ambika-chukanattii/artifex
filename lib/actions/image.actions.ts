@@ -44,7 +44,10 @@ export async function addImage({ image, userId }: AddImageParams) {
       },
       author: author._id,
     })
-    return JSON.parse(JSON.stringify(newImage));
+
+    revalidatePath("/");
+    
+    return NextResponse.json({ success: true, image: newImage });
   } catch (error) {
     handleError(error)
   }

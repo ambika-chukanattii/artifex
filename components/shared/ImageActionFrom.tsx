@@ -246,10 +246,8 @@ const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: I
         image: body,
         userId: userId
       })
-      console.log("it saved",res)
-      redirect("/")
     }catch(err){
-      console.log(err)
+      alert(err)
     }
   }
 
