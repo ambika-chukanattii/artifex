@@ -5,7 +5,11 @@ import { redirect } from "next/navigation"
 import ImageActionForm from "@/components/shared/ImageActionFrom"
 import Sidebar from "@/components/shared/Sidebar"
 
-const ImageActionsPage = async({ params }: SearchParamProps) => {
+interface ImagePageProps {
+  params: Promise<{ type: ImageActionTypeKey }>;
+}
+
+const ImageActionsPage = async({ params }: ImagePageProps) => {
   const { type } = await params;
   const { userId } = await auth()
   const imageAction = imageActions[type]
