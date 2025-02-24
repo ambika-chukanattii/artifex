@@ -7,7 +7,7 @@ import ImageView from "@/components/shared/ImageView";
 const ImagePage = async({ params }: SearchParamProps) => {
   console.log(params)
 
-  const { id } = params;
+  const { id } = await params;
   const { userId } = await auth();
 
   if(!userId) redirect('/sign-in')

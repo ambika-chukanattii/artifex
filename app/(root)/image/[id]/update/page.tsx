@@ -7,7 +7,7 @@ import Sidebar from "@/components/shared/Sidebar"
 import { getImageById } from "@/lib/actions/image.actions"
 
 const ImageUpdatePage = async({ params }: SearchParamProps) => {
-  const { id } = params;
+  const { id } = await params;
   const { userId } = await auth()
 
   const image = await getImageById(id);

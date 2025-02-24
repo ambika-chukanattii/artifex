@@ -6,7 +6,7 @@ import ImageActionForm from "@/components/shared/ImageActionFrom"
 import Sidebar from "@/components/shared/Sidebar"
 
 const ImageActionsPage = async({ params }: SearchParamProps) => {
-  const { type } = params;
+  const { type } = await params;
   const { userId } = await auth()
 
   if(!type) redirect("/sign-in")

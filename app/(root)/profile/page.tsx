@@ -8,7 +8,7 @@ import { getUserById } from "@/lib/actions/user.actions";
 import Search from "@/components/shared/Search";
 
 const Profile = async ({ searchParams }: SearchParamProps) => {
-  const searchQuery = (searchParams?.query as string) || '';
+  const searchQuery = (await searchParams)?.query as string || '';
   const { userId } = await auth();
 
   if (!userId) redirect("/sign-in");

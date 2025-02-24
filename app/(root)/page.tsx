@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const CommunityPage = async({ searchParams }: SearchParamProps) => {
   console.log(searchParams)
-  const searchQuery = (searchParams?.query as string) || '';
+  const searchQuery = (await searchParams)?.query as string || '';
   let images = await getAllImages()
   console.log(images)
 
