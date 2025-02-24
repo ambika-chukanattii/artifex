@@ -261,7 +261,7 @@ const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: I
           <h1 className='text-3xl font-extrabold mb-2 text-gray-700'>{imageAction.title}</h1>
           <h4 className='mb-6 text-gray-500 max-w-[500px] text-center'>{imageAction.subTitle}</h4>
         </div>
-        <form className="mx-8">
+        <form className="mx-8 lg:mx-4">
             <div className="w-full flex flex-col lg:flex-row lg:gap-6 items-center justify-center">
               <div className="lg:hidden w-[665px] flex justify-center">
                 <ImageActionFields
@@ -270,7 +270,7 @@ const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: I
                   form={newTransformation}
                 />
               </div>
-              <div className="w-full mt-6 lg:mt-4 flex flex-col 2xl:flex-row lg:gap-6 justify-center items-center">
+              <div className="w-full mt-6 lg:mt-4 flex flex-col 2xl:flex-row lg:gap-4 justify-center items-center">
               { type !== 'create' &&
                   <div className="mb-6 lg:mb-0">
                       <label className="input-label">Original Image</label>

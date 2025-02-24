@@ -38,8 +38,8 @@ const Sidebar = ({ type, form, OnTransformChange, isSubmitting, isTransforming, 
   };
 
     return (
-        <aside className='fixed right-0 hidden lg:flex bg-white w-[420px] xl:w-[]h-screen border-l flex-col pl-8'>
-            <div className='flex flex-col w-[350px] mt-12'>
+        <aside className='fixed right-0 hidden lg:flex bg-white w-[420px] h-screen border-l flex-col pl-8'>
+            <div className='flex flex-col w-[350px] mt-12 lg:mt-24'>
                 <label className='input-label'>Select Image Action</label>
                 <select 
                     onChange={handleTypeChange}
