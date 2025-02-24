@@ -6,7 +6,7 @@ import { getUserById } from "@/lib/actions/user.actions";
 import ImageView from "@/components/shared/ImageView";
 
 const ImagePage = async({ params }: SearchParamProps) => {
-  const { id } = await params;
+  const { id } = params;
   const { userId } = await auth();
 
   if(!userId) redirect('/sign-in')
