@@ -23,6 +23,7 @@ const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: I
   const [isTransforming, setIsTransforming] = useState(false)
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
+  const apikey = "sk-HOvmjrQiLvLr6UnCpPY1BR36tThVuqJk9nLTA5DxxxlCMxgy"
 
   if(action==='Update'){
     console.log(data)
@@ -75,7 +76,7 @@ const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: I
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+          Authorization: `Bearer ${apikey}`,
         },
         body: body
       })
@@ -204,7 +205,7 @@ const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: I
           body: body,
           headers: {
             Accept: 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+            Authorization: `Bearer ${apikey}`,
           }
         })
 
