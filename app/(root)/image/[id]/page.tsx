@@ -6,7 +6,6 @@ import ImageView from "@/components/shared/ImageView";
 
 interface ImagePageProps {
   params: { id: string };
-  type?: ImageActionTypeKey;
 }
 
 const ImagePage = async({ params }: ImagePageProps) => {
