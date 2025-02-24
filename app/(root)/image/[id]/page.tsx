@@ -5,11 +5,13 @@ import { redirect } from 'next/navigation';
 import ImageView from "@/components/shared/ImageView";
 
 interface ImagePageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const ImagePage = async({ params }: ImagePageProps) => {
-  const { id } = params;
+  console.log(params)
+
+  const { id } = await params;
   const { userId } = await auth();
 
   if(!userId) redirect('/sign-in')
