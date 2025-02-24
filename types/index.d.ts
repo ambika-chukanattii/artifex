@@ -121,7 +121,7 @@ declare type RemoveUrlQueryParams = {
 };
 
 declare type SearchParamProps = {
-  params: { id: string; type: ImageActionTypeKey };
+  params: { id: string; type?: ImageActionTypeKey };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
