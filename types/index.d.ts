@@ -146,10 +146,10 @@ declare type RemoveUrlQueryParams = {
 };
 
 declare type SearchParamProps = {
-  params: Promise<{ 
+  params: { 
     id: string; 
     type?: ImageActionTypeKey 
-  }>;
+  };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 

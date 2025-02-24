@@ -6,12 +6,8 @@ import ImageActionForm from "@/components/shared/ImageActionFrom"
 import Sidebar from "@/components/shared/Sidebar"
 import { getImageById } from "@/lib/actions/image.actions"
 
-interface ImagePageProps {
-  params: Promise<{ id: string }>;
-}
-
 const ImageUpdatePage = async({ params }: SearchParamProps) => {
-  const { id } = await params;
+  const { id } = params;
   const { userId } = await auth()
 
   const image = await getImageById(id);

@@ -4,14 +4,10 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from 'next/navigation';
 import ImageView from "@/components/shared/ImageView";
 
-interface ImagePageProps {
-  params: Promise<{ id: string }>;
-}
-
 const ImagePage = async({ params }: SearchParamProps) => {
   console.log(params)
 
-  const { id } = await params;
+  const { id } = params;
   const { userId } = await auth();
 
   if(!userId) redirect('/sign-in')
