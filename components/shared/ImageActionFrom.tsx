@@ -16,7 +16,6 @@ import { urlToPng } from "@/lib/async_utils"
 import { urlPath } from "@/constants"
 import { calculateIncrements } from "@/lib/utils"
 import path from "path"
-import PreviousMap_ from "postcss/lib/previous-map"
 
 const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: ImageActionFormProps) => {
   const imageAction = imageActions[type];
