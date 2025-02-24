@@ -3,7 +3,7 @@ import MobileNav from '@/components/shared/MobileNav'
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className='w-full h-full'>
+    <main className='w-full h-full mb-24'>
       <Header/>
       <MobileNav/>
       <div>

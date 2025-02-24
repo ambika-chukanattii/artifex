@@ -4,7 +4,7 @@ import { deleteImage } from "@/lib/actions/image.actions"
 import { download } from "@/lib/utils"
 import { redirect } from "next/navigation"
 
-const ImageView = ({ image }: {image: UpdateImageParams}) => {
+const ImageView = ({ image, userId }: {image: UpdatedImageParams, userId: string}) => {
 
     const handleDownload = () => {
         download(image.transformedImage.imageUrl,"image")
@@ -58,16 +58,20 @@ const ImageView = ({ image }: {image: UpdateImageParams}) => {
                 <div className="flex flex-row justify-between mb-4">
                     <h3>Transformed</h3>
                     <div className="flex flex-row gap-6 items-center">
-                    <img 
-                        src="/assets/icons/delete.svg"
-                        className="cursor-pointer w-5 h-5"
-                        onClick={handleDelete}
-                    />
-                    <img 
-                        src="/assets/icons/edit.svg"
-                        className="cursor-pointer w-5 h-5"
-                        onClick={handleEdit}
-                    />
+                        {image.author.clerkId==userId &&
+                            <div className="flex flex-row gap-6 items-center">
+                                <img 
+                                    src="/assets/icons/delete.svg"
+                                    className="cursor-pointer w-5 h-5"
+                                    onClick={handleDelete}
+                                />
+                                <img 
+                                    src="/assets/icons/edit.svg"
+                                    className="cursor-pointer w-5 h-5"
+                                    onClick={handleEdit}
+                                />
+                            </div>
+                        }
                     <img 
                         src="/assets/icons/download.svg"
                         className="cursor-pointer w-6 h-6"

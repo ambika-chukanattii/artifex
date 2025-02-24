@@ -56,6 +56,31 @@ declare type UpdateImageParams = {
   };
 };
 
+declare type UpdatedImageParams = {
+  title: string;
+  prompt: string;
+  selectPrompt: string;
+  transformationType: string;
+  originalImage: {
+    imageUrl: string;
+    width: number;
+    height: number;
+  };
+  transformedImage: {
+    imageUrl: string;
+    width: number;
+    height: number;
+    aspectRatio: string;
+  };
+  author: {
+    clerkId: string;
+    firstName: string;
+    lastName: string;
+    _id: string;
+  };
+  _id: string;
+};
+
 declare type TransformationParams = {
   title: string;
   prompt: string;
