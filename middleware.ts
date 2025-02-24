@@ -11,5 +11,4 @@ export const config = {
     "/api/:path*",
     "/trpc/:path*",
   ],
-  runtime: "nodejs"
 };
