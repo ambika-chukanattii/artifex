@@ -9,7 +9,7 @@ interface ImagePageProps {
 }
 
 const ImagePage = async({ params }: ImagePageProps) => {
-  const { id } = await params;
+  const { id } = params;
   const { userId } = await auth();
 
   if(!userId) redirect('/sign-in')
