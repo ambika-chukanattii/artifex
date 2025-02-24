@@ -8,7 +8,7 @@ interface ImagePageProps {
   params: Promise<{ id: string }>;
 }
 
-const ImagePage = async({ params }: ImagePageProps) => {
+const ImagePage = async({ params }: SearchParamProps) => {
   console.log(params)
 
   const { id } = await params;

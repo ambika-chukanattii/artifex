@@ -5,13 +5,12 @@ import { redirect } from "next/navigation"
 import ImageActionForm from "@/components/shared/ImageActionFrom"
 import Sidebar from "@/components/shared/Sidebar"
 
-interface ImagePageProps {
-  params: Promise<{ type: ImageActionTypeKey }>;
-}
-
-const ImageActionsPage = async({ params }: ImagePageProps) => {
+const ImageActionsPage = async({ params }: SearchParamProps) => {
   const { type } = await params;
   const { userId } = await auth()
+
+  if(!type) redirect("/sign-in")
+    
   const imageAction = imageActions[type]
 
   if(!userId) redirect("/sign-up")

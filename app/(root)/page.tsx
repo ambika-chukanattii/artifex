@@ -4,11 +4,8 @@ import Card from '@/components/shared/Card'
 import { getAllImages } from "@/lib/actions/image.actions"
 import Link from 'next/link'
 
-// type imageProps = {
-//   image: TransformedImageProps
-// };
-
 const CommunityPage = async({ searchParams }: SearchParamProps) => {
+  console.log(searchParams)
   const searchQuery = (searchParams?.query as string) || '';
   let images = await getAllImages()
   console.log(images)

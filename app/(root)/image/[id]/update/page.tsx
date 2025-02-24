@@ -10,7 +10,7 @@ interface ImagePageProps {
   params: Promise<{ id: string }>;
 }
 
-const ImageUpdatePage = async({ params }: ImagePageProps) => {
+const ImageUpdatePage = async({ params }: SearchParamProps) => {
   const { id } = await params;
   const { userId } = await auth()
 
