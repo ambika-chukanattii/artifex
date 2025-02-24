@@ -261,7 +261,7 @@ const ImageActionForm = ({ action, data = null, userId, type, creditBalance }: I
           <h1 className='text-3xl font-extrabold mb-2 text-gray-700'>{imageAction.title}</h1>
           <h4 className='mb-6 text-gray-500 max-w-[500px] text-center'>{imageAction.subTitle}</h4>
         </div>
-        <form className="mx-8 lg:mx-4">
+        <form className="mx-8 lg:ml-4">
             <div className="w-full flex flex-col lg:flex-row lg:gap-6 items-center justify-center">
               <div className="lg:hidden w-[665px] flex justify-center">
                 <ImageActionFields
