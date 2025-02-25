@@ -63,7 +63,7 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
         <Search />
       </section>
 
-      <div className='w-11/12 flex flex-col lg:flex-row justify-center gap-8 mt-14 lg:mt-20'>
+      <div className='w-11/12 grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 justify-center gap-8 mt-14 lg:mt-20'>
         {
           images && images.map((image: UpdateImageParams) => (
               <Link href={`/image/${image._id}`}><Card image={image} key={image._id}/></Link>
